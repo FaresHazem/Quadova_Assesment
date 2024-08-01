@@ -1,0 +1,6 @@
+<odoo>
+    <menuitem id="root_level" name="Event Manager"/>
+    <menuitem id="second_level_advertisements" name="Events" parent="root_level">
+        <menuitem id="third_level" name="Event" action="event_event_action"/>
+    </menuitem>
+</odoo>
