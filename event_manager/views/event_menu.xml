@@ -1,6 +1,10 @@
 <odoo>
+    <!-- Create the root-level menu item for the Event Manager -->
     <menuitem id="root_level" name="Event Manager"/>
-    <menuitem id="second_level_advertisements" name="Events" parent="root_level">
+
+    <!-- Create a second-level menu item for Events under the Event Manager -->
+    <menuitem id="second_level" name="Events" parent="root_level">
+        <!-- Create a third-level menu item for the Event action -->
         <menuitem id="third_level" name="Event" action="event_event_action"/>
     </menuitem>
 </odoo>

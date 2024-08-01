@@ -1,16 +1,17 @@
 <odoo>
+    <!-- Inherit the Sales Order form view to add the event_id field -->
     <record id="view_sale_order_form_inherit" model="ir.ui.view">
         <field name="name">res.sale.order.form.inherit</field>
         <field name="model">sale.order</field>
-        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="inherit_id" ref="sale.view_order_form"/> <!-- Reference to the original Sales Order form view -->
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='partner_id']" position="after">
-                <field name="event_id" />
+            <xpath expr="//field[@name='partner_id']" position="after"> <!-- Locate the partner_id field to insert the new field after it -->
+                <field name="event_id" /> <!-- The new field to be added -->
             </xpath>
         </field>
     </record>
 
-
+    <!-- Define the form view for the event.event model -->
     <record id="event_event_form_view" model="ir.ui.view">
         <field name="name">event.event.view.form</field>
         <field name="model">event.event</field>
@@ -18,38 +19,34 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="name" string="Name"/>
-                        <field name="date" string="Date"/>
-                        <field name="location" string="Location"/>
-                        <field name="description" string="Description"/>
+                        <field name="name" string="Name"/> <!-- Field for the event name -->
+                        <field name="date" string="Date"/> <!-- Field for the event date -->
+                        <field name="location" string="Location"/> <!-- Field for the event location -->
+                        <field name="description" string="Description"/> <!-- Field for the event description -->
                     </group>
                 </sheet>
             </form>
         </field>
     </record>
 
+    <!-- Define the tree view for the event.event model -->
     <record id="event_event_tree_view" model="ir.ui.view">
         <field name="name">event.event.view.tree</field>
         <field name="model">event.event</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="name"/>
-                <field name="date"/>
-                <field name="location"/>
-                <field name="description"/>
+                <field name="name"/> <!-- Display the event name in the tree view -->
+                <field name="date"/> <!-- Display the event date in the tree view -->
+                <field name="location"/> <!-- Display the event location in the tree view -->
+                <field name="description"/> <!-- Display the event description in the tree view -->
             </tree>
         </field>
     </record>
 
+    <!-- Define an action to open the event.event model -->
     <record id="event_event_action" model="ir.actions.act_window">
         <field name="name">Event Event</field>
         <field name="res_model">event.event</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-
-    <record id="event_event" model="ir.actions.act_window">
-        <field name="name">Event Event</field>
-        <field name="res_model">event.event</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form</field> <!-- Specify the view modes available for this action -->
     </record>
 </odoo>

@@ -6,7 +6,6 @@
     "application": True,
     "data": [
         # SECURITY
-        #"security/res_groups.xml",
         "security/ir.model.access.csv",
         # VIEWS
         "views/event_event_views.xml",
